@@ -7,6 +7,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
 
+Plug 'scrooloose/nerdcommenter'
+
 Plug 'morhetz/gruvbox'
 
 Plug 'airblade/vim-gitgutter'
