@@ -21,6 +21,8 @@ Plug 'mattn/emmet-vim'
 
 Plug 'pangloss/vim-javascript'
 
+Plug 'mxw/vim-jsx'
+
 call plug#end()
 
 map <C-n> :NERDTreeToggle<CR>
@@ -39,3 +41,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
