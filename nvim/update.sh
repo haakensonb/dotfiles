@@ -7,9 +7,12 @@ else
 	echo "Couldn't copy nvim settings to dotfiles"
 fi
 
+# make sure we are in the right directory
+cd ~/dotfiles/nvim
 # Push changes
 if git add . && \
-   git commit -m "Settings updated" && \
+   # use first argument for commit message
+   git commit -m "$1" && \
    git push
 then
 	echo "Changes pushed"

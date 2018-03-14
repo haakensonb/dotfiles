@@ -47,3 +47,7 @@ let g:user_emmet_settings = {
     \      'extends' : 'jsx',
     \  },
   \}
+
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+
+set expandtab
