@@ -3,51 +3,66 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
-
-Plug 'scrooloose/nerdtree'
-
-Plug 'scrooloose/nerdcommenter'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'morhetz/gruvbox'
 
+Plug 'scrooloose/nerdtree'
+
 Plug 'airblade/vim-gitgutter'
 
-Plug 'scrooloose/syntastic'
+Plug 'yggdroot/indentline'
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'jiangmiao/auto-pairs'
 
-Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-commentary'
 
-Plug 'pangloss/vim-javascript'
-
-Plug 'mxw/vim-jsx'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
-map <C-n> :NERDTreeToggle<CR>
-
 colorscheme gruvbox
 set background=dark
-set number
+set number relativenumber
+set expandtab
+set smarttab
+syntax on
+filetype plugin indent on
 
-inoremap jj <Esc>
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeIgnore = ['^node_modules$']
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" coc settings
+"
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-let g:user_emmet_settings = {
-  \  'javascript.jsx' : {
-    \      'extends' : 'jsx',
-    \  },
-  \}
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-
-set expandtab
