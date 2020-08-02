@@ -5,7 +5,9 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
+
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'scrooloose/nerdtree'
 
@@ -21,7 +23,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
-colorscheme gruvbox
+colorscheme dracula
 set background=dark
 set number relativenumber
 set expandtab
