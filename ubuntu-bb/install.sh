@@ -19,6 +19,13 @@ sudo snap install go --classic
 mkdir ~/tools
 cd ~/tools/
 
+echo "installing dirsearch"
+git clone https://github.com/maurosoria/dirsearch.git
+cd dirsearch
+pip3 install -r requirements.txt
+cd ~/tools/
+echo "done"
+
 #install aquatone
 echo "Installing Aquatone"
 go get github.com/michenriksen/aquatone
