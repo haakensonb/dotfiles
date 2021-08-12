@@ -19,6 +19,13 @@ sudo snap install go --classic
 mkdir ~/tools
 cd ~/tools/
 
+echo "installing dnsgen"
+git clone https://github.com/ProjectAnte/dnsgen
+cd dnsgen
+pip3 install -r requirements.txt
+cd ~/tools/
+echo "done"
+
 echo "installing dirsearch"
 git clone https://github.com/maurosoria/dirsearch.git
 cd dirsearch
