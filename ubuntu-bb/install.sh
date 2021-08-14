@@ -12,6 +12,7 @@ sudo apt install -y curl
 sudo apt install -y ripgrep
 sudo apt install -y perl
 sudo apt install -y nikto
+sudo apt install -y hydra
 
 sudo snap install go --classic
 
