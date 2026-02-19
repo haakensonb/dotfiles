@@ -19,3 +19,6 @@ elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
 fi
 
 unset env
+
+# Use starship prompt
+eval "$(starship init bash)"
