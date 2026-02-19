@@ -62,12 +62,7 @@ config.keys = {
     mods = 'CTRL|SHIFT|ALT',
     action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
   },
-  -- Close current pane. <SHIFT-CTRL W> will close current tab (including all panes)
-  {
-    key = 'w',
-    mods = 'CTRL',
-    action = wezterm.action.CloseCurrentPane { confirm = false },
-  },
+
 }
 
 -- Finally, return the configuration to wezterm:
